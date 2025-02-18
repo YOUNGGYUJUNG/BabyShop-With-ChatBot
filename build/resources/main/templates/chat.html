@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chat Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 400px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .chat-body {
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .message.sent {
+            background: #007bff;
+            color: white;
+            text-align: right;
+        }
+
+        .message.received {
+            background: #f1f1f1;
+            text-align: left;
+        }
+
+        .chat-footer {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .chat-footer button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .chat-footer button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="chat-container">
+    <div class="chat-header">Chat Application</div>
+    <div class="chat-body" id="chatBody">
+        <!-- Messages will be appended here dynamically -->
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="messageInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        const messageInput = document.getElementById('messageInput');
+        const chatBody = document.getElementById('chatBody');
+
+        const message = messageInput.value;
+        if (!message) return;
+
+        // Display sent message
+        const sentMessage = document.createElement('div');
+        sentMessage.classList.add('message', 'sent');
+        sentMessage.textContent = message;
+        chatBody.appendChild(sentMessage);
+
+        // Clear input
+        messageInput.value = '';
+
+        // Send message to the server
+        fetch('/api/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: message }),
+        })
+            .then(response => response.text())
+            .then(data => {
+                // Display received message
+                const receivedMessage = document.createElement('div');
+                receivedMessage.classList.add('message', 'received');
+                receivedMessage.textContent = data;
+                chatBody.appendChild(receivedMessage);
+            });
+    }
+</script>
+</body>
+</html>

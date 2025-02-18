@@ -1,0 +1,21 @@
+
+spring:
+  profiles:
+    default: jyg
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/fourth_apple_dev
+    username: root
+    password: J
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: embedded
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: on
+jwt:
+  secretKey: mySuperLongSecretKeyThatIsAtLeast32Bytes
+  expiredMs: 600000

@@ -1,0 +1,157 @@
+/* src/styles/OrderList.module.css */
+
+.orderListContainer {
+    background-color: #f5f5dc; /* 베이지색 배경 */
+    padding: 2rem;
+    max-width: 900px;
+    margin: 3rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Nanum Gothic', sans-serif; /* 구글 폰트 적용 */
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #8b5e3c; /* 진한 베이지색 */
+    margin-bottom: 2rem;
+  }
+  
+  .orderCard {
+    background-color: #fffbea; /* 아주 연한 베이지색 */
+    padding: 1.5rem;
+    border: 1px solid #cbb38f; /* 연한 베이지색 테두리 */
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .orderCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .orderDate {
+    font-size: 1.2rem;
+    color: #704214; /* 중간 베이지색 */
+    margin-bottom: 1rem;
+  }
+  
+  .orderTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  
+  .orderTable th,
+  .orderTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .orderTable th {
+    background-color: #cbb38f; /* 연한 베이지색 헤더 */
+    color: #fff;
+  }
+  
+  .detailLink {
+    text-align: right;
+  }
+  
+  .link {
+    color: #8b5e3c; /* 진한 베이지색 링크 */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+  
+  .link:hover {
+    color: #fff; /* 흰색 텍스트 */
+    background-color: #cbb38f; /* 연한 베이지색 배경 */
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .paginationButton {
+    padding: 0.5rem 1rem;
+    background-color: #cbb38f; /* 연한 베이지색 배경 */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .paginationButton:hover:not(.disabledButton) {
+    background-color: #8b5e3c; /* 진한 베이지색 배경 */
+    transform: translateY(-2px);
+  }
+  
+  .disabledButton {
+    background-color: #e2d3b1; /* 비활성화된 버튼 배경색 */
+    cursor: not-allowed;
+  }
+  
+  .pageInfo {
+    font-size: 1rem;
+    color: #704214; /* 중간 베이지색 텍스트 */
+  }
+  
+  .loading,
+  .error,
+  .noOrders {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+  
+  .loading {
+    color: #8b5e3c; /* 진한 베이지색 */
+  }
+  
+  .error {
+    color: #c62828; /* 빨간색 */
+  }
+  
+  .noOrders {
+    color: #704214; /* 중간 베이지색 */
+  }
+  
+  /* 반응형 디자인 */
+  @media (max-width: 768px) {
+    .orderListContainer {
+      padding: 1.5rem;
+      margin: 2rem 1rem;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    .orderCard {
+      padding: 1rem;
+    }
+  
+    .orderTable th,
+    .orderTable td {
+      padding: 8px;
+    }
+  
+    .paginationButton {
+      padding: 0.5rem;
+    }
+  
+    .pageInfo {
+      font-size: 0.9rem;
+    }
+  }

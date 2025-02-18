@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest  # Redis 최신 버전 이미지
+    container_name: redis
+    ports:
+      - "6379:6379"      # Redis 기본 포트
+    volumes:
+      - redis_data:/data # Redis 데이터 저장
+    networks:
+      - app_network
+
+  mysql:
+    image: mysql:8.0     # MySQL 8.0 버전
+    container_name: mysql
+    ports:
+      - "3306:3306"       # MySQL 기본 포트
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234           # MySQL 루트 사용자 비밀번호
+      MYSQL_DATABASE: fourth_apple_dev     # 기본 생성할 데이터베이스
+      MYSQL_USER: root                     # MySQL 사용자
+      MYSQL_PASSWORD: 1234                  # MySQL 사용자 비밀번호
+    volumes:
+      - mysql_data:/var/lib/mysql          # MySQL 데이터 저장
+    networks:
+      - app_network
+
+  elasticsearch:
+    image: elasticsearch:7.17.3  # 원하는 Elasticsearch 버전을 사용하세요
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node      # 단일 노드 모드로 실행
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"  # Java 메모리 옵션 (필요에 따라 조정)
+    ports:
+      - "9200:9200"   # Elasticsearch REST API 포트
+      - "9300:9300"   # Elasticsearch 클러스터 통신 포트 (필요 시)
+    volumes:
+      - es_data:/usr/share/elasticsearch/data   # Elasticsearch 데이터 저장
+    networks:
+      - app_network
+
+volumes:
+  redis_data:  # Redis 데이터 볼륨
+  mysql_data:  # MySQL 데이터 볼륨
+  es_data:     # Elasticsearch 데이터 볼륨
+
+networks:
+  app_network:
+    driver: bridge
+

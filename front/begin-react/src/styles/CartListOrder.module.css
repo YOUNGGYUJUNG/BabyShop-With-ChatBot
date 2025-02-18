@@ -1,0 +1,162 @@
+/* src/styles/CartListOrder.module.css */
+
+.container {
+    background-color: #f5f5dc; /* 베이지색 배경 */
+    padding: 2rem;
+    max-width: 900px;
+    margin: 3rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Nanum Gothic', sans-serif; /* 구글 폰트 적용 */
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #8b5e3c; /* 진한 베이지색 */
+    margin-bottom: 2rem;
+  }
+  
+  .updateMsg {
+    text-align: center;
+    color: #2e7d32; /* 초록색 */
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cartTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .cartTable th,
+  .cartTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .cartTable th {
+    background-color: #cbb38f; /* 연한 베이지색 헤더 */
+    color: #fff;
+  }
+  
+  .quantityInput {
+    width: 60px;
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid #cbb38f; /* 연한 베이지색 테두리 */
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .quantityInput:focus {
+    border-color: #8b5e3c; /* 진한 베이지색 테두리 */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(139, 94, 60, 0.2);
+  }
+  
+  .updateButton {
+    padding: 5px 10px;
+    background-color: #8b5e3c; /* 진한 베이지색 배경 */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .updateButton:hover {
+    background-color: #704214; /* 더욱 진한 베이지색 배경 */
+    transform: translateY(-2px);
+  }
+  
+  .deleteButton {
+    padding: 5px 10px;
+    background-color: #c62828; /* 빨간색 배경 */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .deleteButton:hover {
+    background-color: #a61c1c; /* 더욱 진한 빨간색 배경 */
+    transform: translateY(-2px);
+  }
+  
+  .orderButtonContainer {
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+  .orderButton {
+    padding: 10px 20px;
+    background-color: #cbb38f; /* 연한 베이지색 배경 */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .orderButton:hover {
+    background-color: #8b5e3c; /* 진한 베이지색 배경 */
+    transform: translateY(-2px);
+  }
+  
+  .orderButton:active {
+    background-color: #704214; /* 더욱 진한 베이지색 */
+    transform: translateY(0);
+  }
+  
+  .loading,
+  .error,
+  .noItems {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+  
+  .loading {
+    color: #8b5e3c; /* 진한 베이지색 */
+  }
+  
+  .error {
+    color: #c62828; /* 빨간색 */
+  }
+  
+  .noItems {
+    color: #704214; /* 중간 베이지색 */
+  }
+  
+  /* 반응형 디자인 */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1.5rem;
+      margin: 2rem 1rem;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    .cartTable th,
+    .cartTable td {
+      padding: 8px;
+    }
+  
+    .updateButton,
+    .deleteButton {
+      padding: 4px 8px;
+    }
+  
+    .orderButton {
+      padding: 8px 16px;
+      font-size: 0.95rem;
+    }
+  }

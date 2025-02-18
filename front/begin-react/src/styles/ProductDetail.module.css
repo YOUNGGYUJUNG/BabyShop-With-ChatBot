@@ -1,0 +1,133 @@
+/* src/styles/ProductDetail.module.css */
+
+.container {
+  background-color: #f5f5dc; /* 베이지색 배경 */
+  padding: 2rem;
+  max-width: 900px;
+  margin: 3rem auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Nanum Gothic', sans-serif; /* 구글 폰트 적용 */
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #8b5e3c; /* 진한 베이지색 */
+  margin-bottom: 2rem;
+}
+
+.productContent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.productImage {
+  width: 100%;
+  max-width: 400px; /* 이미지 최대 너비 증가 */
+  height: auto; /* 높이는 자동으로 조정 */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.productInfo {
+  flex: 1;
+  min-width: 250px;
+}
+
+.productInfo p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #704214; /* 중간 베이지색 */
+}
+
+.description {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.actionButtons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.orderLink {
+  padding: 10px 20px;
+  background-color: #cbb38f; /* 연한 베이지색 배경 */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.orderLink:hover {
+  background-color: #8b5e3c; /* 진한 베이지색 배경 */
+  transform: translateY(-2px);
+}
+
+.addToCartButton {
+  padding: 10px 20px;
+  background-color: #28a745; /* 초록색 배경 */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.addToCartButton:hover {
+  background-color: #218838; /* 진한 초록색 배경 */
+  transform: translateY(-2px);
+}
+
+.loading,
+.error,
+.noProduct {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.loading {
+  color: #8b5e3c; /* 진한 베이지색 */
+}
+
+.error {
+  color: #c62828; /* 빨간색 */
+}
+
+.noProduct {
+  color: #704214; /* 중간 베이지색 */
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+    margin: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .productContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .productImage {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .orderLink,
+  .addToCartButton {
+    width: 100%;
+    text-align: center;
+  }
+}

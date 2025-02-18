@@ -1,0 +1,130 @@
+/* src/styles/NoticeList.css */
+
+/* 전체 컨테이너 스타일 */
+.notice-list-container {
+    background-color: #f5f5dc; /* 베이지색 배경 */
+    padding: 2rem;
+    max-width: 800px;
+    margin: 10rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Nanum Gothic', sans-serif; /* 구글 폰트 적용 */
+  }
+  
+  /* 제목 스타일 */
+  .notice-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #8b5e3c; /* 진한 베이지색 */
+    margin-bottom: 1.5rem;
+  }
+  
+  /* 테이블 스타일 */
+  .notice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+  }
+  
+  .notice-table th,
+  .notice-table td {
+    border: 1px solid #cbb38f; /* 연한 베이지색 테두리 */
+    padding: 0.75rem;
+    text-align: center;
+  }
+  
+  .notice-table th {
+    background-color: #e2d3b1; /* 연한 베이지색 배경 */
+    color: #704214; /* 중간 베이지색 텍스트 */
+  }
+  
+  .notice-table tr:nth-child(even) {
+    background-color: #fdf6e3; /* 더욱 연한 베이지색 */
+  }
+  
+  .notice-link {
+    color: #8b5e3c; /* 진한 베이지색 링크 */
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  
+  .notice-link:hover {
+    color: #fff; /* 흰색 텍스트 */
+    background-color: #cbb38f; /* 연한 베이지색 배경 */
+  }
+  
+  /* 페이징 스타일 */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .pagination-button {
+    padding: 0.5rem 1rem;
+    background-color: #cbb38f; /* 연한 베이지색 배경 */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .pagination-button:disabled {
+    background-color: #e2d3b1; /* 비활성화된 버튼 배경색 */
+    cursor: not-allowed;
+  }
+  
+  .pagination-button:hover:not(:disabled) {
+    background-color: #8b5e3c; /* 진한 베이지색 배경 */
+    transform: translateY(-2px);
+  }
+  
+  .pagination-info {
+    font-size: 1rem;
+    color: #704214; /* 중간 베이지색 텍스트 */
+  }
+  
+  /* 로딩, 에러, 공지 없음 스타일 */
+  .loading,
+  .error,
+  .no-notices {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  
+  .loading {
+    color: #8b5e3c; /* 진한 베이지색 */
+  }
+  
+  .error {
+    color: #c62828; /* 빨간색 */
+  }
+  
+  .no-notices {
+    color: #704214; /* 중간 베이지색 */
+  }
+  
+  /* 반응형 디자인 */
+  @media (max-width: 768px) {
+    .notice-list-container {
+      padding: 1.5rem;
+      margin: 2rem 1rem;
+    }
+  
+    .notice-title {
+      font-size: 1.5rem;
+    }
+  
+    .pagination-button {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+  
+    .pagination-info {
+      font-size: 0.9rem;
+    }
+  }

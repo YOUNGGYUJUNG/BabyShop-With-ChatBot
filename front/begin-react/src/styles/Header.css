@@ -1,0 +1,43 @@
+/* src/styles/Header.css */
+
+.shop-header {
+    background-color: #f5f5dc; /* 베이지색 배경 */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shop-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #8b5e3c; /* 진한 베이지색 */
+    text-decoration: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link {
+    margin-left: 20px;
+    font-size: 1rem;
+    color: #704214; /* 중간 베이지색 */
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+  
+  .nav-link:hover {
+    color: #fff;
+    background-color: #cbb38f; /* 연한 베이지색 호버 */
+  }
+  
+  .user-info {
+    margin-left: 20px;
+    font-size: 0.95rem;
+    color: #704214; /* 중간 베이지색 */
+  }

@@ -1,0 +1,47 @@
+/* src/styles/MainPage.css */
+
+.main-page {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f5f5dc; /* 베이지색 배경 */
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .main-title {
+    font-size: 3rem;
+    color: #8b5e3c; /* 진한 베이지색 */
+    margin-bottom: 20px;
+  }
+  
+  .main-subtitle {
+    font-size: 1.5rem;
+    color: #a1866f; /* 중간 베이지색 */
+    margin-bottom: 40px;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .main-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #d4a373; /* 연한 베이지색 */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .main-button:hover {
+    background-color: #b58360; /* 호버 시 색상 변경 */
+    transform: scale(1.05);
+  }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Application</title>
+    <script>
+        async function sendMessage() {
+            const userMessage = document.getElementById("messageInput").value;
+
+            // JSON 요청 생성 및 전송
+            const response = await fetch('/api/send', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userMessage })
+            });
+
+            // JSON 응답 처리
+            if (response.ok) {
+                const responseData = await response.json();
+                document.getElementById("serverResponse").innerText = responseData.response;
+            } else {
+                document.getElementById("serverResponse").innerText = "Error: Unable to fetch response.";
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Chat Application</h1>
+<input type="text" id="messageInput" placeholder="Enter your message" />
+<button onclick="sendMessage()">Send</button>
+<p>Server Response: <span id="serverResponse"></span></p>
+</body>
+</html>
