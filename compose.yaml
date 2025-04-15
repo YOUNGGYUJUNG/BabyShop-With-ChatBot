@@ -1,0 +1,76 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0 
+    container_name: BabyShop-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: BabyShop
+    ports:
+      - "3313:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - BabyShop-network
+
+  redis:
+    image: redis:latest
+    container_name: BabyShop-redis
+    ports:
+      - "6385:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - BabyShop-network
+
+  spring-app:
+    image: spring-server:latest  # 빌드된 Spring Boot 이미지 사용
+    container_name: BabyShop-app
+    ports:
+      - "8085:8080"  # 호스트의 8082 포트를 컨테이너의 8080 포트에 매핑
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://BabyShop-mysql:3306/BabyShop
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 1234
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - BabyShop-network
+
+  nginx:
+    image: nginx:latest
+    container_name: BabyShop-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/server.conf:/etc/nginx/conf.d/default.conf  # nginx 설정 파일 마운트
+      - ./static:/var/www/html  # 정적 파일 마운트
+    depends_on:
+      - spring-app  # nginx가 spring-app을 찾도록 설정
+    networks:
+      - BabyShop-network
+
+#  elasticsearch:
+#    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.1
+#    container_name: BabyShop-elasticSearch
+#    environment:
+#      - discovery.type=single-node
+#      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#    ports:
+#      - "9201:9200"
+#      - "9301:9300"
+#    volumes:
+#      - esdata:/usr/share/elasticsearch/data
+#    networks:
+#      - BabyShop-network
+
+networks:
+  BabyShop-network:
+    name : BabyShop-network
+
+volumes:
+  mysql_data:
+  redis_data:
+# esdata:
